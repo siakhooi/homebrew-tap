@@ -2,11 +2,16 @@
 My Homebrew tap repo
 
 ## Applications
+- [json2table](https://github.com/siakhooi/json2table) - Convert JSON to table output
 - [picsum](https://github.com/siakhooi/picsum) - CLI client for picsum.photos
-
 
 ## Usage
 ```
+# install json2table
+brew tap siakhooi/tap
+brew install json2table
+
+# install picsum
 brew tap siakhooi/tap
 brew install picsum
 ```
