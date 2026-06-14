@@ -4,6 +4,8 @@ My Homebrew tap repo
 ## Applications
 - [json2table](https://github.com/siakhooi/json2table) - Convert JSON to table output
 - [picsum](https://github.com/siakhooi/picsum) - CLI client for picsum.photos
+- [semvery](https://github.com/siakhooi/semvery) - semver utilities
+- [jexl-executor](https://github.com/siakhooi/jexl-executor) - jexl scripts executor
 
 ## Usage
 ```
