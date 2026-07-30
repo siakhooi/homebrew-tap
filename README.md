@@ -1,5 +1,12 @@
 # homebrew-tap
+
 My Homebrew tap repo
+
+## Setup
+
+```
+brew tap siakhooi/tap
+```
 
 ## Applications
 - [json2table](https://github.com/siakhooi/json2table) - Convert JSON to table output
@@ -9,13 +16,10 @@ My Homebrew tap repo
 
 ## Usage
 ```
-# install json2table
-brew tap siakhooi/tap
 brew install json2table
-
-# install picsum
-brew tap siakhooi/tap
 brew install picsum
+brew install semvery
+brew install jexl-executor
 ```
 
 [![Wise](https://img.shields.io/badge/Funding-Wise-33cb56.svg?logo=wise)](https://wise.com/pay/me/siakn3)
