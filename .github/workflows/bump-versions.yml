@@ -1,0 +1,45 @@
+name: Bump formula versions
+
+on:
+  schedule:
+    # 04:00 Malaysia time (Asia/Kuala_Lumpur)
+    - cron: "0 4 * * *"
+      timezone: "Asia/Kuala_Lumpur"
+  workflow_dispatch:
+    inputs:
+      formulas:
+        description: "Formulas to bump (space-separated). Leave empty for all."
+        required: false
+        type: string
+
+permissions:
+  contents: write
+
+concurrency:
+  group: bump-formula-versions
+  cancel-in-progress: false
+
+jobs:
+  bump:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7.0.1
+
+      - name: Bump formula versions
+        id: bump
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          FORMULAS: ${{ github.event.inputs.formulas }}
+        run: ./scripts/bump-up-version.sh ${FORMULAS:-}
+
+      - name: Commit and push
+        if: steps.bump.outputs.changed == 'true'
+        env:
+          SUMMARY: ${{ steps.bump.outputs.summary }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add Formula
+          git commit -m "chore: bump formula versions" -m "${SUMMARY}"
+          git push

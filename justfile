@@ -12,3 +12,6 @@ test:
     brew install {{ repo }}
 tree:
     tree `brew --repo`/Library/Taps/{{ owner }}/{{ tap }}
+
+bump-up:
+    ./scripts/bump-up-version.sh
