@@ -3,17 +3,17 @@
 class JexlExecutor < Formula
   desc "JEXL scripts executor"
   homepage "https://github.com/siakhooi/jexl-executor"
-  version "1.6.3"
+  version "1.6.4"
   license "MIT"
 
   on_macos do
     on_arm do
       url "https://github.com/siakhooi/jexl-executor/releases/download/#{version}/jexl-executor-#{version}-macos-arm64.zip"
-      sha256 "b2733c21ad81414eddbf7c5730d8f7cc583108152efd7ff9de214e1d7d8d6922"
+      sha256 "73818dcfbe85355d6ece2d0c9754ea8cfa6b17e6c2c38926ae494b6adb859a29"
     end
     on_intel do
       url "https://github.com/siakhooi/jexl-executor/releases/download/#{version}/jexl-executor.jar"
-      sha256 "aad287f9195d27f9ba90e2d37b19b6fe9e117ced78bb8bcacfb6163e52faba4f"
+      sha256 "1e3663fda5e4cdf1b32073cc284aeae2898901227e09ab92fee3d0f6d7f86c6d"
 
       depends_on "openjdk"
     end
@@ -21,7 +21,7 @@ class JexlExecutor < Formula
 
   on_linux do
     url "https://github.com/siakhooi/jexl-executor/releases/download/#{version}/jexl-executor.jar"
-    sha256 "aad287f9195d27f9ba90e2d37b19b6fe9e117ced78bb8bcacfb6163e52faba4f"
+    sha256 "1e3663fda5e4cdf1b32073cc284aeae2898901227e09ab92fee3d0f6d7f86c6d"
 
     depends_on "openjdk"
   end
