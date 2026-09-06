@@ -27,19 +27,35 @@ jobs:
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7.0.1
 
       - name: Bump formula versions
-        id: bump
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           FORMULAS: ${{ github.event.inputs.formulas }}
-        run: ./scripts/bump-up-version.sh ${FORMULAS:-}
+        run: |
+          set -euo pipefail
+          if [[ -n "${FORMULAS:-}" ]]; then
+            read -r -a formula_args <<< "$FORMULAS"
+            bash scripts/bump-up-version.sh "${formula_args[@]}"
+          else
+            bash scripts/bump-up-version.sh
+          fi
 
       - name: Commit and push
-        if: steps.bump.outputs.changed == 'true'
-        env:
-          SUMMARY: ${{ steps.bump.outputs.summary }}
         run: |
+          set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add Formula
-          git commit -m "chore: bump formula versions" -m "${SUMMARY}"
+
+          mapfile -t files < <(git diff --name-only -- Formula/)
+          if [[ ${#files[@]} -eq 0 ]]; then
+            echo "No formula changes."
+            exit 0
+          fi
+
+          for file in "${files[@]}"; do
+            formula=$(basename "$file" .rb)
+            version=$(sed -n 's/^[[:space:]]*version[[:space:]]*"\([^"]*\)".*/\1/p' "$file" | head -n1)
+            git add "$file"
+            git commit -m "chore: bump ${formula} to ${version}"
+          done
+
           git push
