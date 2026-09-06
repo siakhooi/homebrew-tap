@@ -3,17 +3,17 @@
 class Semvery < Formula
   desc "Java semver utilities"
   homepage "https://github.com/siakhooi/semvery"
-  version "1.1.2"
+  version "1.1.3"
   license "MIT"
 
   on_macos do
     on_arm do
       url "https://github.com/siakhooi/semvery/releases/download/#{version}/semvery-#{version}-macos-arm64.zip"
-      sha256 "fed2f69c50b96654754b9654d223e5ed5a6871fcaa68e20803d125b92266365f"
+      sha256 "833443f5b7ce21f5027f317a660b5c34c95519b730b2e4276fbdb8ca769ea727"
     end
     on_intel do
       url "https://github.com/siakhooi/semvery/releases/download/#{version}/semvery-#{version}-jar-with-dependencies.jar"
-      sha256 "17a7d7fb2dc99493245a4662567c46320ea6e460db36855f4325c19dba30c104"
+      sha256 "d742e627243f047100e2c39d4fd08436fde0462de8de32c929ef69cf3cc7fb0d"
 
       depends_on "openjdk"
     end
@@ -21,7 +21,7 @@ class Semvery < Formula
 
   on_linux do
     url "https://github.com/siakhooi/semvery/releases/download/#{version}/semvery-#{version}-jar-with-dependencies.jar"
-    sha256 "17a7d7fb2dc99493245a4662567c46320ea6e460db36855f4325c19dba30c104"
+    sha256 "d742e627243f047100e2c39d4fd08436fde0462de8de32c929ef69cf3cc7fb0d"
 
     depends_on "openjdk"
   end
