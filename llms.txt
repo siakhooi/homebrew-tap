@@ -1,0 +1,37 @@
+# siakhooi Homebrew tap
+
+> Personal Homebrew tap `siakhooi/tap` (GitHub: [siakhooi/homebrew-tap](https://github.com/siakhooi/homebrew-tap)). It packages MIT-licensed CLI tools and a planning-poker web app. Formulas install prebuilt GitHub release binaries; they do not build from source.
+
+Add the tap, then install formulas by name:
+
+```
+brew tap siakhooi/tap
+brew install json2table
+brew install picsum
+brew install semvery
+brew install jexl-executor
+brew install fibo-planner
+```
+
+Each formula is `Formula/<name>.rb`. The packaged version and platform `url`/`sha256` pairs live there. `semvery` and `jexl-executor` use a native macOS ARM app bundle; Linux and Intel macOS install a JAR and depend on OpenJDK. Version bumps are driven from each project's latest GitHub release (`scripts/bump-up-version.sh`, daily at 04:00 Asia/Kuala_Lumpur).
+
+## Tools
+
+- [json2table](https://github.com/siakhooi/json2table): Go CLI that prints JSON as a table. `json2table [-s spec.json | -c col1,col2] [data.json]`. Spec can also come from `JSON2TABLE_SPEC` or `JSON2TABLE_SPEC_FILE`. Formula: [json2table.rb](https://github.com/siakhooi/homebrew-tap/blob/main/Formula/json2table.rb). Docs: [README](https://raw.githubusercontent.com/siakhooi/json2table/main/README.md), [SPEC.md](https://raw.githubusercontent.com/siakhooi/json2table/main/SPEC.md).
+- [picsum](https://github.com/siakhooi/picsum): Go CLI for https://picsum.photos. `picsum 200` is a 200×200 image; `picsum 200 300` is width × height. Flags: `--id`, `--seed`, `--gray`, `--blur` / `--blurlevel`, `--output`, `--force`, `--quiet`. Formula: [picsum.rb](https://github.com/siakhooi/homebrew-tap/blob/main/Formula/picsum.rb). Docs: [README](https://raw.githubusercontent.com/siakhooi/picsum/main/README.md).
+- [semvery](https://github.com/siakhooi/semvery): Java CLI for Semantic Versioning. Operations via `-o` / `--operation`: `isValid`, `isStable`, `isGreater`, `isLower`, `isEqual`, `isEquivalent`. Comparisons take `-r` as the reference version. Formula: [semvery.rb](https://github.com/siakhooi/homebrew-tap/blob/main/Formula/semvery.rb). Docs: [README](https://raw.githubusercontent.com/siakhooi/semvery/main/README.md).
+- [jexl-executor](https://github.com/siakhooi/jexl-executor): Java CLI that runs Apache JEXL scripts against a shared JSON context. Pass a context file then scripts (`jexl-executor context.json step1.jexl …`) or a YAML config (`jexl-executor -c [execution-config.yaml]`). Formula: [jexl-executor.rb](https://github.com/siakhooi/homebrew-tap/blob/main/Formula/jexl-executor.rb). Docs: [README](https://raw.githubusercontent.com/siakhooi/jexl-executor/main/README.md), [User-Guide.md](https://raw.githubusercontent.com/siakhooi/jexl-executor/main/User-Guide.md).
+- [fibo-planner](https://github.com/siakhooi/fibo-planner): Single-binary planning-poker web app (Go). No accounts or database; rooms sync over WebSockets. Default listen address `:8080` (`FIBO_PLANNER_ADDR`). Fibonacci cards 1–20; votes stay hidden until everyone votes unless always-show is on. Formula: [fibo-planner.rb](https://github.com/siakhooi/homebrew-tap/blob/main/Formula/fibo-planner.rb). Docs: [README](https://raw.githubusercontent.com/siakhooi/fibo-planner/main/README.md). Public sample: https://fibo-planner-189393002108.asia-southeast1.run.app/
+
+## Tap repository
+
+- [README](https://github.com/siakhooi/homebrew-tap/blob/main/README.md): Tap setup and formula list.
+- [Formula/](https://github.com/siakhooi/homebrew-tap/tree/main/Formula): Homebrew formulas for every tool in this tap.
+- [scripts/bump-up-version.sh](https://github.com/siakhooi/homebrew-tap/blob/main/scripts/bump-up-version.sh): Check GitHub releases and bump formula `version` plus `sha256`. No args means all formulas; extra args are formula names.
+- [justfile](https://github.com/siakhooi/homebrew-tap/blob/main/justfile): Local helpers (`just bump-up`, `just bump <app>`).
+
+## Optional
+
+- [LICENSE](https://github.com/siakhooi/homebrew-tap/blob/main/LICENSE): MIT License.
+- [bump-versions.yml](https://github.com/siakhooi/homebrew-tap/blob/main/.github/workflows/bump-versions.yml): GitHub Action that runs the bump script daily at 04:00 Malaysia time and on `workflow_dispatch`.
+- [llms.txt specification](https://llmstxt.org/index.html): Format used by this file.
