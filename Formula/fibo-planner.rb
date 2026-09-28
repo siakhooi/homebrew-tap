@@ -22,9 +22,8 @@ class FiboPlanner < Formula
       url "https://github.com/siakhooi/fibo-planner/releases/download/#{version}/fibo-planner_#{version}_Linux_arm64.tar.gz"
       sha256 "15908e767645212640b5c595b6225b19b3e8790ca99838fb40b75c57d2e6dfb4"
     elsif Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-        url "https://github.com/siakhooi/fibo-planner/releases/download/#{version}/fibo-planner_#{version}_Linux_x86_64.tar.gz"
-        sha256 "14f2c9415dfd521486f8cdbc54c850087c2f5c5788b1e712694d5e263d96a7e3"
-      end
+      url "https://github.com/siakhooi/fibo-planner/releases/download/#{version}/fibo-planner_#{version}_Linux_x86_64.tar.gz"
+      sha256 "14f2c9415dfd521486f8cdbc54c850087c2f5c5788b1e712694d5e263d96a7e3"
     end
   end
 
