@@ -3,31 +3,31 @@
 class Json2table < Formula
   desc "Convert JSON to table output"
   homepage "https://github.com/siakhooi/json2table"
-  version "1.1.1"
+  version "1.2.0"
   license "MIT"
 
   on_macos do
     on_arm do
       url "https://github.com/siakhooi/json2table/releases/download/v#{version}/json2table_#{version}_Darwin_arm64.tar.gz"
-      sha256 "451f3c6398b08e7590b837752d93c20c7b9342a5a5a654adf808f378bf308044"
+      sha256 "81062dfb421365a79a9cc5d4290d29268c8684b6e9cd202a24b6c32438c0b03b"
     end
     on_intel do
       url "https://github.com/siakhooi/json2table/releases/download/v#{version}/json2table_#{version}_Darwin_x86_64.tar.gz"
-      sha256 "56ce7dfabc0730a08bd06aa8aff22a36df4087163efe6022ffe43670eb6cee22"
+      sha256 "a5bb131abb8ee4313ae4202d42702b0cfaa6e3a1c71ef8699d1f31115543eb56"
     end
   end
 
   on_linux do
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
       url "https://github.com/siakhooi/json2table/releases/download/v#{version}/json2table_#{version}_Linux_arm64.tar.gz"
-      sha256 "d18c97d1cb8b7b03c1ff20f7441a3622b4abb0504b59d09b604cf3819d2044f2"
+      sha256 "9dc4faa66348a5e9ac037c6fb4e6fcd6e6bc18a35d56f629dbc031bf0fa226d1"
     elsif Hardware::CPU.intel?
       if Hardware::CPU.is_64_bit?
         url "https://github.com/siakhooi/json2table/releases/download/v#{version}/json2table_#{version}_Linux_x86_64.tar.gz"
-        sha256 "e2afba82a328e53a00a8098f9a3c46a851e0802fa94dee3fd7d1f49a35a4e65f"
+        sha256 "faffa4a499b67be44dfa26bbad4011cc6e27b14745c780e7415d55f46232399b"
       else
         url "https://github.com/siakhooi/json2table/releases/download/v#{version}/json2table_#{version}_Linux_i386.tar.gz"
-        sha256 "98c3713d7bbc555574658ee6c0d0b7b5158b16ba606b4065f57e80d839371a9f"
+        sha256 "7bf9b10bead781a2f77d134c5cbb07df4cac7109eef329c9faebb18b84493ddf"
       end
     end
   end
