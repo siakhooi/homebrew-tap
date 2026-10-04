@@ -3,31 +3,31 @@
 class Picsum < Formula
   desc "CLI client for picsum.photos"
   homepage "https://github.com/siakhooi/picsum"
-  version "1.2.3"
+  version "1.3.0"
   license "MIT"
 
   on_macos do
     on_arm do
       url "https://github.com/siakhooi/picsum/releases/download/v#{version}/picsum_#{version}_Darwin_arm64.tar.gz"
-      sha256 "70b15d104aa09a2891367b867108c375ebefeaa21031329e6310c741f38234eb"
+      sha256 "3a17d385d1945402b02e23a0f4c6ea07681b3addd28c8700f51c59ae7f5432a7"
     end
     on_intel do
       url "https://github.com/siakhooi/picsum/releases/download/v#{version}/picsum_#{version}_Darwin_x86_64.tar.gz"
-      sha256 "ed4587f04684a4ea61de10c0f23ac01494bf96e466e1bbe9ec909d3a29e54c1a"
+      sha256 "dd49382686f99ea19397c5ddd72c48033d63aab993268e5c7dec34a4f534b4ce"
     end
   end
 
   on_linux do
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
       url "https://github.com/siakhooi/picsum/releases/download/v#{version}/picsum_#{version}_Linux_arm64.tar.gz"
-      sha256 "3003efd84a9973aeb40af9a6a5bbe135ff7d9b8cdadd499623ab0dcc220df6b3"
+      sha256 "5f00441db7794e27460991d4060c6cf26f702f9fb0614e4b333c7cd46dfadb0a"
     elsif Hardware::CPU.intel?
       if Hardware::CPU.is_64_bit?
         url "https://github.com/siakhooi/picsum/releases/download/v#{version}/picsum_#{version}_Linux_x86_64.tar.gz"
-        sha256 "79d364638aeb37e09dc05f2d075d91af8f7503bdbbb9d24a244c1e2b9104f6f0"
+        sha256 "f1ce7ee24576933fe6b517b6bff9c1a56d0337772da5c097d0a88edc3b6a336c"
       else
         url "https://github.com/siakhooi/picsum/releases/download/v#{version}/picsum_#{version}_Linux_i386.tar.gz"
-        sha256 "6e2699665b25668d272bc04aea909c5edfc3c794b3ff1c53e39d449717adb077"
+        sha256 "9736afa248314e7a40192cffe70d28dcb02ec3352d3b275d9d90c8ab254d6f12"
       end
     end
   end
