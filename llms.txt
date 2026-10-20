@@ -11,6 +11,7 @@ brew install picsum
 brew install semvery
 brew install jexl-executor
 brew install fibo-planner
+brew install cooonfig
 ```
 
 Each formula is `Formula/<name>.rb`. The packaged version and platform `url`/`sha256` pairs live there. `semvery` and `jexl-executor` use a native macOS ARM app bundle; Linux and Intel macOS install a JAR and depend on OpenJDK. Version bumps are driven from each project's latest GitHub release (`scripts/bump-up-version.sh`, daily at 04:00 Asia/Kuala_Lumpur).
@@ -22,6 +23,7 @@ Each formula is `Formula/<name>.rb`. The packaged version and platform `url`/`sh
 - [semvery](https://github.com/siakhooi/semvery): Java CLI for Semantic Versioning. Operations via `-o` / `--operation`: `isValid`, `isStable`, `isGreater`, `isLower`, `isEqual`, `isEquivalent`. Comparisons take `-r` as the reference version. Formula: [semvery.rb](https://github.com/siakhooi/homebrew-tap/blob/main/Formula/semvery.rb). Docs: [README](https://raw.githubusercontent.com/siakhooi/semvery/main/README.md).
 - [jexl-executor](https://github.com/siakhooi/jexl-executor): Java CLI that runs Apache JEXL scripts against a shared JSON context. Pass a context file then scripts (`jexl-executor context.json step1.jexl …`) or a YAML config (`jexl-executor -c [execution-config.yaml]`). Formula: [jexl-executor.rb](https://github.com/siakhooi/homebrew-tap/blob/main/Formula/jexl-executor.rb). Docs: [README](https://raw.githubusercontent.com/siakhooi/jexl-executor/main/README.md), [User-Guide.md](https://raw.githubusercontent.com/siakhooi/jexl-executor/main/User-Guide.md).
 - [fibo-planner](https://github.com/siakhooi/fibo-planner): Single-binary planning-poker web app (Go). No accounts or database; rooms sync over WebSockets. Default listen address `:8080` (`FIBO_PLANNER_ADDR`). Fibonacci cards 1–20; votes stay hidden until everyone votes unless always-show is on. Formula: [fibo-planner.rb](https://github.com/siakhooi/homebrew-tap/blob/main/Formula/fibo-planner.rb). Docs: [README](https://raw.githubusercontent.com/siakhooi/fibo-planner/main/README.md). Public sample: https://fibo-planner-189393002108.asia-southeast1.run.app/
+- [cooonfig](https://github.com/siakhooi/cooonfig): Go CLI that combines multiple configuration sources into a unified model and generates configuration and environment files. Uses Sprig in templates; several input files plus a model template build the model, then a list of templates is rendered to output paths. `cooonfig --help`, `cooonfig --version`. Formula: [cooonfig.rb](https://github.com/siakhooi/homebrew-tap/blob/main/Formula/cooonfig.rb). Docs: [README](https://raw.githubusercontent.com/siakhooi/cooonfig/main/README.md).
 
 ## Tap repository
 
