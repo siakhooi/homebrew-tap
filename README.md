@@ -14,6 +14,7 @@ brew tap siakhooi/tap
 - [semvery](https://github.com/siakhooi/semvery) - semver utilities
 - [jexl-executor](https://github.com/siakhooi/jexl-executor) - jexl scripts executor
 - [fibo-planner](https://github.com/siakhooi/fibo-planner) - web app to run planning poker technique
+- [cooonfig](https://github.com/siakhooi/cooonfig) - Combine multiple configuration sources into a unified model and generate configuration and environment files.
 ## Usage
 ```
 brew install json2table
@@ -21,6 +22,7 @@ brew install picsum
 brew install semvery
 brew install jexl-executor
 brew install fibo-planner
+brew install cooonfig
 ```
 
 [![Wise](https://img.shields.io/badge/Funding-Wise-33cb56.svg?logo=wise)](https://wise.com/pay/me/siakn3)
